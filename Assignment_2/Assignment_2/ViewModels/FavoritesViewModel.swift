@@ -56,10 +56,26 @@ class FavoritesViewModel : ObservableObject {
         hobbyManager.clearFavorites(items: &hobbies)
         bookManager.clearFavorites(items: &books)
     }
-    
+
+    func favoritedCities(searchText: String) -> [CityModel] {
+        let favoriteIds = cityManager.loadFavoriteIds()
+        let favorites = cities.filter { favoriteIds.contains($0.id) }
+        return cityManager.filteredItems(items: favorites, searchText: searchText)
+    }
+
+    func favoritedHobbies(searchText: String) -> [HobbyModel] {
+        let favoriteIds = hobbyManager.loadFavoriteIds()
+        let favorites = hobbies.filter { favoriteIds.contains($0.id) }
+        return hobbyManager.filteredItems(items: favorites, searchText: searchText)
+    }
+
+    func favoritedBooks(searchText: String) -> [BookModel] {
+        let favoriteIds = bookManager.loadFavoriteIds()
+        let favorites = books.filter { favoriteIds.contains($0.id) }
+        return bookManager.filteredItems(items: favorites, searchText: searchText)
+    }
     
 }
-
 
 let sampleCities: [CityModel] = [
 

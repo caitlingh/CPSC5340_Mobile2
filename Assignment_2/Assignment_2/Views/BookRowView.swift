@@ -16,9 +16,9 @@ struct BookRowView: View {
         HStack {
             VStack (alignment: .leading){
                 Text(book.bookTitle)
-                    .font(.title2)
+                    .font(.headline)
                 Text(book.bookAuthor)
-                    .font(.body)
+                    .font(.subheadline)
             }
             
             Spacer()

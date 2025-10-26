@@ -55,4 +55,6 @@ class CategoryManager<T: Favoritable> {
         }
         UserDefaults.standard.removeObject(forKey: storageKey)
     }
+
+
 }
